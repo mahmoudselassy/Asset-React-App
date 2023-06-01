@@ -12,9 +12,12 @@ function App() {
     setLoading(false);
     setResponse(response);
   };
+  const spinnerHandler = (isRunning: boolean) => {
+    setLoading(isRunning);
+  };
   return (
     <div className="App">
-      <AssetsForm runSpinner={setLoading} onResponse={responseHandler} />
+      <AssetsForm runSpinner={spinnerHandler} onResponse={responseHandler} />
       <Card>
         {loading && <Spinner />}
         {!loading && <p>{response}</p>}

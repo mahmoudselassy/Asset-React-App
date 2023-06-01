@@ -3,7 +3,6 @@ import Button from "../UI/Button";
 import Card from "../UI/Card";
 import styles from "./AssetsForm.module.css";
 import { AssetsFormProps, DateElement } from "../../Interfaces";
-import { DatePicker } from "../UI/DatePicker";
 import { DatesList } from "./DatesList";
 function AssetsForm(props: AssetsFormProps) {
   const [assetType, setAssetType] = useState("");
@@ -20,6 +19,13 @@ function AssetsForm(props: AssetsFormProps) {
   };
   const startDateChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setStartDate(event.target.value);
+  };
+  const datesChangeHandler = (dates: DateElement[], hasDescription: boolean) => {
+    if (hasDescription) {
+      setFaultHistory(dates);
+      return;
+    }
+    setMaintenanceHistory(dates);
   };
   const selectModelChangeHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedModel(event.target.value);
@@ -47,7 +53,7 @@ function AssetsForm(props: AssetsFormProps) {
     const url = selectedModel === "ChatGPT" ? "http://35.180.193.72:8000/chatgpt" : "http://35.180.193.72:8000/bard";
     props.runSpinner(true);
     try {
-      /*const response = await fetch(url, {
+      const response = await fetch(url, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -55,9 +61,7 @@ function AssetsForm(props: AssetsFormProps) {
         body: JSON.stringify({ message }),
       });
       const data = await response.json();
-      console.log(data);
-      props.onResponse(`${selectedModel} Response: ${data.response}`);*/
-      props.onResponse(`${selectedModel} Response: done`);
+      props.onResponse(`${selectedModel} Response: ${data.response}`);
     } catch (error) {
       console.error(error);
       props.runSpinner(false);
@@ -68,13 +72,6 @@ function AssetsForm(props: AssetsFormProps) {
     setMaintenanceHistory([{ date: "", id: Math.random() }]);
     setFaultHistory([{ date: "", description: "", id: Math.random() }]);
     setSelectedModel("");
-  };
-  const datesChangeHandler = (dates: DateElement[], hasDescription: boolean) => {
-    if (hasDescription) {
-      setFaultHistory(dates);
-      return;
-    }
-    setMaintenanceHistory(dates);
   };
   return (
     <Card>
