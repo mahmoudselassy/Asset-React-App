@@ -24,14 +24,16 @@ export interface AssetsFormProps {
 }
 
 export interface DatesListProps {
-  Dates: DateElement[];
+  dates: DateElement[];
   hasDescription?: boolean;
-  onAddDate: Function;
-  setDates: Function;
+  onDatesChange: Function;
+  /*onAddDate: Function;
+  setDates: Function;*/
 }
 export interface DateElement {
   date: string;
   id: number;
+  description?: string;
 }
 export interface DatePickerProps {
   inputDate: DateElement;
@@ -41,7 +43,7 @@ export interface DatePickerProps {
   onDateChange: Function;
   onDescriptionChange: Function;
   onDeleteDate: Function;
-}
+} /*
 export interface FaultDateElement extends DateElement {
   description: string;
-}
+}*/
