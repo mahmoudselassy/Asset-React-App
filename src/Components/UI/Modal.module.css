@@ -1,0 +1,39 @@
+.modal_background {
+  position: fixed; /* Use fixed positioning instead of absolute */
+  top: 0;
+  left: 0;
+  width: 100%; /* Set width to 100% */
+  height: 100%; /* Set height to 100% */
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1; /* Adjust the z-index value if necessary */
+}
+.modal_window {
+  position: fixed; /* Use fixed positioning instead of relative */
+  top: 50%;
+  left: 50%;
+  margin: auto;
+  transform: translate(-50%, -50%); /* Center the modal horizontally and vertically */
+  background-color: rgba(255, 255, 255);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+h2 {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  color: white;
+  width: 100%;
+  padding: 20px;
+  background-color: #1c87c9;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+p {
+  margin: 30px;
+  margin-top: 80px;
+  font-size: 20px;
+  font-weight: 600;
+}

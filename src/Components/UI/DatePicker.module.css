@@ -1,0 +1,13 @@
+.DateContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.Buttonicon {
+  height: 30px;
+  width: 30px;
+  margin: 10px;
+  padding: 0;
+  border: none;
+  outline: none;
+}

@@ -1,0 +1,23 @@
+.card {
+  position: relative;
+  background-color: white;
+  margin: 10px auto;
+  width: 50%;
+  height: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 10px;
+  padding: 20px;
+}
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .card {
+    position: relative;
+    background-color: white;
+    margin: 10px auto;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    border-radius: 10px;
+    padding: 20px;
+  }
+}

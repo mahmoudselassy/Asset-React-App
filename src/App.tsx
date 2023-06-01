@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { useState } from "react";
+import "./App.css";
+import { AssetsForm } from "./Components/Assets/AssetsForm";
+import Card from "./Components/UI/Card";
+import Spinner from "./Components/UI/Spinner";
 
 function App() {
+  const [loading, setLoading] = useState(false);
+  const [response, setResponse] = useState("");
+  const responseHandler = (response: string) => {
+    setLoading(false);
+    setResponse(response);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AssetsForm runSpinner={setLoading} onResponse={responseHandler} />
+      <Card>
+        {loading && <Spinner />}
+        {!loading && <p>{response}</p>}
+      </Card>
     </div>
   );
 }

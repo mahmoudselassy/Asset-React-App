@@ -1,0 +1,21 @@
+button:not(:has(img)) {
+  padding: 10px 20px;
+  margin: 10px auto;
+  font-size: 17px;
+  border: 1px solid #1c87c9;
+  background: #1c87c9;
+  border-radius: 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button:not(:has(img)):hover,
+button:not(:has(img)):active {
+  background: #26a9e0;
+  border-color: #26a9e0;
+}
+
+button:not(:has(img)):focus {
+  outline: none;
+}
